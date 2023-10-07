@@ -71,3 +71,24 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+// ▪️ Terminal - Start the REPL
+npm run start -- --entryFile repl
+
+// Get UserRepository and update User ID 1 (make sure you have a User with that ID of course)
+await get("UserRepository").update({ id: 1 }, { role: 'regular' })
+// Get all Users from the DB
+await get("UserRepository").find()
+
+// ▪️ Terminal - switch to REPL window and update User 1's Role (or whatever user you were working on)
+await get("UserRepository").update({ id: 1 }, { role: 'admin' })
+
+// -------
+// ▪️Terminal - run REPL
+npm run start -- --entryFile repl
+
+// ⚠️ NOTE: If you’re getting any errors like “Property "permissions" was not found in "User"”
+// you need to restart your REPL session (close the window & run it again).
+
+// ⚙️ Let's get the UserRepository again, update user 1, and add the permissions create_coffee to it.
+await get("UserRepository").update({ id: 1 }, { permissions: ['create_course'] })
